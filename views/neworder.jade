@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  h1= title
+  
+  form(id="ingredientlist")
+    |Name
+    input(type="text", name="Name")
+
+    each ingredient, i in ingredients
+      li
+        | #{ingredient.ingredient} 
+        input(type='checkbox', name="ingredient", value=ingredient._id)
+    input(id="submit", type="button", value="Submit")

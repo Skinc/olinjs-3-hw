@@ -1,0 +1,10 @@
+body
+	h1 Ingredients Adder
+	form(action="/ingredient/create", method="POST")
+		|Ingredient	
+		input(type="text", name="ingredient")
+
+		|Cost
+		input(type="text", name="cost")
+
+		input(type="submit", value="Submit")

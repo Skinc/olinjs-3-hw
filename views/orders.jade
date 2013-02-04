@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  h1= title
+  
+  form(id="orderlist")
+    each order, i in orders    
+        form
+          h3 #{order.customerName}
+          button(id="completebutton", value=#{order._id})
+          | Order Complete
+          each ingredient, i in order.ingredients
+            p #{ingredient.ingredient} 
+
+    //- input(type="text", name="Name")
+
+    //- each ingredient, i in ingredients
+    //-   li
+    //-     | #{ingredient.ingredient} 
+    //-     input(type='checkbox', name="ingredient", value=ingredient._id)
+    //- input(id="submit", type="button", value="Submit")
