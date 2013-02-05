@@ -1,11 +1,15 @@
 $(function(){
 	$('#submit').click( function (evt) {
-		console.log("JHISHSIHS")
-	   $.post("/order/create", $('#ingredientlist').serialize())
-       $('body').append('<p>Order Recieved! Thanks!</p>')
+		$.post("/order/create", $('#ingredientlist').serialize())
+    $('body').append('<p>Order Recieved! Thanks!</p>')
+    return false
 	})
 
-    $('#completebutton').click( function (evt) {
-        $('body').append('<p>Order Recieved! Thanks!</p>')
+    $('.completebutton').click( function (evt) {
+        var custname = $(this).attr("name")
+        var response = {name:custname}
+        $.post("/orders/update", response)
+        $('#'+custname).remove()
+        return false
     })
 })
